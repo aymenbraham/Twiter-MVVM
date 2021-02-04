@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		C3700DC125CC2A13001A1118 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3700DC025CC2A13001A1118 /* AppDelegate.swift */; };
 		C3700DC325CC2A13001A1118 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3700DC225CC2A13001A1118 /* SceneDelegate.swift */; };
-		C3700DC825CC2A13001A1118 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3700DC625CC2A13001A1118 /* Main.storyboard */; };
 		C3700DCB25CC2A13001A1118 /* Twiter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C3700DC925CC2A13001A1118 /* Twiter.xcdatamodeld */; };
 		C3700DCD25CC2A14001A1118 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3700DCC25CC2A14001A1118 /* Assets.xcassets */; };
 		C3700DD025CC2A14001A1118 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3700DCE25CC2A14001A1118 /* LaunchScreen.storyboard */; };
@@ -46,7 +45,6 @@
 		C3700DBD25CC2A13001A1118 /* Twiter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Twiter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3700DC025CC2A13001A1118 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3700DC225CC2A13001A1118 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C3700DC725CC2A13001A1118 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C3700DCA25CC2A13001A1118 /* Twiter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Twiter.xcdatamodel; sourceTree = "<group>"; };
 		C3700DCC25CC2A14001A1118 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C3700DCF25CC2A14001A1118 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -123,7 +121,6 @@
 				C3700DF825CC2C90001A1118 /* View */,
 				C3700DF725CC2C8E001A1118 /* ViewModel */,
 				C3700DF625CC2C7C001A1118 /* Model */,
-				C3700DC625CC2A13001A1118 /* Main.storyboard */,
 				C3700DCE25CC2A14001A1118 /* LaunchScreen.storyboard */,
 				C3700DD125CC2A14001A1118 /* Info.plist */,
 				C3700DC925CC2A13001A1118 /* Twiter.xcdatamodeld */,
@@ -329,7 +326,6 @@
 			files = (
 				C3700DD025CC2A14001A1118 /* LaunchScreen.storyboard in Resources */,
 				C3700DCD25CC2A14001A1118 /* Assets.xcassets in Resources */,
-				C3700DC825CC2A13001A1118 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,14 +396,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		C3700DC625CC2A13001A1118 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C3700DC725CC2A13001A1118 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		C3700DCE25CC2A14001A1118 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
