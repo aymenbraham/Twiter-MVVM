@@ -22,6 +22,7 @@
 		C3CAD59925CC3FA000578C5F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CAD59825CC3FA000578C5F /* Extensions.swift */; };
 		C3CAD59F25CC678A00578C5F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CAD59E25CC678A00578C5F /* LoginViewController.swift */; };
 		C3CAD5A725CC67AF00578C5F /* RegistreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CAD5A625CC67AF00578C5F /* RegistreController.swift */; };
+		C3CAD5B525CC722600578C5F /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CAD5B425CC722600578C5F /* Utilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		C3CAD59825CC3FA000578C5F /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		C3CAD59E25CC678A00578C5F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C3CAD5A625CC67AF00578C5F /* RegistreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistreController.swift; sourceTree = "<group>"; };
+		C3CAD5B425CC722600578C5F /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				C3CAD59825CC3FA000578C5F /* Extensions.swift */,
+				C3CAD5B425CC722600578C5F /* Utilities.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				C3700DC125CC2A13001A1118 /* AppDelegate.swift in Sources */,
 				C3700E1525CC300E001A1118 /* ExploreController.swift in Sources */,
 				C3700DCB25CC2A13001A1118 /* Twiter.xcdatamodeld in Sources */,
+				C3CAD5B525CC722600578C5F /* Utilities.swift in Sources */,
 				C3700E0B25CC2F93001A1118 /* FeedController.swift in Sources */,
 				C3700E0625CC2D88001A1118 /* MainTabController.swift in Sources */,
 				C3700E1A25CC303C001A1118 /* ConversationController.swift in Sources */,
