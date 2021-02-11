@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class MainTabController: UITabBarController {
     
@@ -24,8 +25,8 @@ class MainTabController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        configUI()
-        configViewController()
+        view.backgroundColor = .twitterBlue
+        checkUserSignIn()
     }
     
     // MARK: - UserInteractions
@@ -34,6 +35,29 @@ class MainTabController: UITabBarController {
         print("aaaa")
     }
     
+    // MARK: - API
+    
+    func checkUserSignIn() {
+        if Auth.auth().currentUser == nil {
+            DispatchQueue.main.async {
+                let nav = UINavigationController(rootViewController: LoginViewController())
+                nav.modalPresentationStyle = .fullScreen
+                self.present(nav, animated: true, completion: nil)
+            }
+        } else {
+            print("DEBUG user Sign In")
+            configUI()
+            configViewController()
+        }
+    }
+    
+    func logOutUser() {
+        do {
+            try Auth.auth().signOut()
+        } catch let error {
+            print("DEBUG ERROR: \(error.localizedDescription)")
+        }
+    }
     // MARK: - Helpers
     
     func configUI() {

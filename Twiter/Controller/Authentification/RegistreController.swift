@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import Firebase
 
-class RegistreController: UIViewController {
+class RegistreController: UIViewController, UITextFieldDelegate {
 
     // MARK: - Properties
     
     private let imagePicker = UIImagePickerController()
+    var profileImage: UIImage?
     
     private let addPhotoButton: UIButton = {
        let button = UIButton()
@@ -28,7 +30,7 @@ class RegistreController: UIViewController {
     }()
     
     private let passwordTextField: UITextField = {
-        let tf = Utilities().textField(withPlaceHolder: "Password", isSecure: true)
+        let tf = Utilities().textField(withPlaceHolder: "Password", isSecure: false)
         return tf
     }()
     
@@ -38,7 +40,7 @@ class RegistreController: UIViewController {
     }()
     
     private let userNameTextField: UITextField = {
-        let tf = Utilities().textField(withPlaceHolder: "User Name", isSecure: true)
+        let tf = Utilities().textField(withPlaceHolder: "User Name", isSecure: false)
         return tf
     }()
     
@@ -89,7 +91,29 @@ class RegistreController: UIViewController {
     // MARK: - UserInteraction
     @objc
     func signUpAction() {
-      print("signUpAction")
+        guard let email = emailTextField.text else { return}
+        guard let password = passwordTextField.text else { return}
+        guard let fullName = fullNameTextField.text else { return}
+        guard let userName = userNameTextField.text else { return}
+        guard let profileImage = profileImage else {
+            print("please select Image")
+            return
+        }
+    
+        let credentials = AuthCredentials(email: email, password: password, userName: userName, fullName: fullName, profileImage: profileImage)
+        AuthService.shared.registerUser(credentials: credentials) { (error, ref) in
+            if let error = error {
+                print("DEBUG error \(error.localizedDescription)")
+                return
+            }
+            guard let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow}) else { return }
+            guard let tab = window.rootViewController as? MainTabController else { return }
+            tab.checkUserSignIn()
+            
+            self.dismiss(animated: true, completion: nil)
+            
+        }
+
     }
     
     
@@ -110,6 +134,10 @@ class RegistreController: UIViewController {
         view.backgroundColor = .twitterBlue
         imagePicker.delegate = self
         imagePicker.allowsEditing = true
+        self.userNameTextField.delegate = self
+        self.emailTextField.delegate = self
+        self.fullNameTextField.delegate = self
+        self.passwordTextField.delegate = self
         
         navigationController?.navigationBar.barStyle = .black
         navigationController?.navigationBar.isHidden = true
@@ -134,17 +162,15 @@ extension RegistreController: UIImagePickerControllerDelegate, UINavigationContr
 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
-        guard let profilImage = info[.editedImage] as? UIImage else { return }
-        
+        guard let profileImage = info[.editedImage] as? UIImage else { return }
+        self.profileImage = profileImage
         self.addPhotoButton.layer.cornerRadius = 128 / 2
         self.addPhotoButton.layer.masksToBounds = true
         self.addPhotoButton.imageView?.contentMode = .scaleAspectFill
         self.addPhotoButton.imageView?.clipsToBounds = true
         self.addPhotoButton.layer.borderWidth = 3
         self.addPhotoButton.layer.borderColor = UIColor.white.cgColor
-        self.addPhotoButton.setImage(profilImage.withRenderingMode(.alwaysOriginal), for: .normal)
-        
-        
+        self.addPhotoButton.setImage(profileImage.withRenderingMode(.alwaysOriginal), for: .normal)
         dismiss(animated: true, completion: nil)
     }
 }
