@@ -48,7 +48,7 @@ struct AuthService {
                 guard let urlImage = url?.absoluteString else { return }
                 Auth.auth().createUser(withEmail: email, password: password, completion:  { (result, error) in
                     if let error = error {
-                        print(error.localizedDescription)
+                        print("DEBUG: \(error.localizedDescription)")
                         return
                     }
                     

@@ -21,21 +21,38 @@ class MainTabController: UITabBarController {
         return button
     }()
     
+    var user: User? {
+        didSet {
+            guard let nav =  viewControllers?[0] as? UINavigationController else { return }
+            guard let feed = nav.viewControllers.first as? FeedViewController else {
+                return
+            }
+            feed.user = user
+        }
+    }
+    
     // MARK: - LifeCycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .twitterBlue
         checkUserSignIn()
+       // logOutUser()
     }
     
     // MARK: - UserInteractions
     @objc
     func actionButtonTapped() {
-        print("aaaa")
+       
     }
     
     // MARK: - API
+    
+    func fetchUser()  {
+        UserService.shared.fetchUser { user in
+            self.user = user
+        }
+    }
     
     func checkUserSignIn() {
         if Auth.auth().currentUser == nil {
@@ -48,6 +65,7 @@ class MainTabController: UITabBarController {
             print("DEBUG user Sign In")
             configUI()
             configViewController()
+            fetchUser()
         }
     }
     

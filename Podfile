@@ -11,6 +11,7 @@ target 'Twiter' do
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
   pod 'Firebase/Auth'
+  pod 'SDWebImage'
 
   target 'TwiterTests' do
     inherit! :search_paths

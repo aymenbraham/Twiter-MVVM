@@ -96,7 +96,7 @@ class RegistreController: UIViewController, UITextFieldDelegate {
         guard let fullName = fullNameTextField.text else { return}
         guard let userName = userNameTextField.text else { return}
         guard let profileImage = profileImage else {
-            print("please select Image")
+            print("DEBUG: please select Image")
             return
         }
     
@@ -139,7 +139,7 @@ class RegistreController: UIViewController, UITextFieldDelegate {
         self.fullNameTextField.delegate = self
         self.passwordTextField.delegate = self
         
-        navigationController?.navigationBar.barStyle = .black
+//        navigationController?.navigationBar.barStyle = .black
         navigationController?.navigationBar.isHidden = true
         view.addSubview(addPhotoButton)
         addPhotoButton.centerX(inView: view, topAnchor: view.safeAreaLayoutGuide.topAnchor, paddingTop: 0)
