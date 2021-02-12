@@ -1,2 +1,2 @@
 # Twiter-MVVM
-Swift, MVVM, No Storyboard, FireBase
+Swift, MVVM, No Storyboard, no XIB, Firebase
