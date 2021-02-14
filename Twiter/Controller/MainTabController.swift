@@ -8,6 +8,8 @@
 import UIKit
 import Firebase
 
+
+
 class MainTabController: UITabBarController {
     
     // MARK: - Properties
@@ -43,7 +45,10 @@ class MainTabController: UITabBarController {
     // MARK: - UserInteractions
     @objc
     func actionButtonTapped() {
-       
+        guard let user = user else { return }
+        let nav = UINavigationController(rootViewController: UploadsTweetController(user: user))
+        nav.modalPresentationStyle = .fullScreen
+        present(nav, animated: true, completion: nil)
     }
     
     // MARK: - API
@@ -86,7 +91,7 @@ class MainTabController: UITabBarController {
     }
     
     func configViewController() {
-        let feed = FeedViewController()
+        let feed = FeedViewController(collectionViewLayout: UICollectionViewFlowLayout())
         let nav1 = templateNavigationController(image: UIImage(named: "home_unselected"), rootViewController: feed)
         
         let explore = ExploreController()
@@ -109,3 +114,5 @@ class MainTabController: UITabBarController {
     }
 
 }
+
+
